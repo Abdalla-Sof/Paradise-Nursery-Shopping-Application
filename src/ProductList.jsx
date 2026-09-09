@@ -167,9 +167,10 @@ export const plants = [
   },
 ];
 
-function ProductList() {
+function ProductList({ onNavigate }) {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart?.items ?? state.items ?? []);
+  const [addedToCart, setAddedToCart] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("All Plants");
   const categories = [
     "All Plants",
@@ -180,6 +181,11 @@ function ProductList() {
       ? plants
       : plants.filter((plant) => plant.category === selectedCategory);
   const cartQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleAddToCart = (plant) => {
+    dispatch(addItem(plant));
+    setAddedToCart((currentItems) => ({ ...currentItems, [plant.name]: true }));
+  };
 
   return (
     <main className="product-page" id="plants">
@@ -224,11 +230,11 @@ function ProductList() {
                 <strong>${plant.price.toFixed(2)}</strong>
                 <button
                   className="primary-button"
-                  disabled={cartItems.some((item) => item.id === plant.id)}
-                  onClick={() => dispatch(addItem(plant))}
+                  disabled={addedToCart[plant.name]}
+                  onClick={() => handleAddToCart(plant)}
                   type="button"
                 >
-                  {cartItems.some((item) => item.id === plant.id)
+                  {addedToCart[plant.name]
                     ? "Added to Cart"
                     : "Add to Cart"}
                 </button>

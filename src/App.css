@@ -17,6 +17,43 @@ body {
   background-color: var(--mist);
 }
 
+.site-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem max(1.5rem, calc((100% - 76rem) / 2));
+  color: var(--white);
+  background: var(--forest-green);
+}
+
+.site-brand,
+.site-nav-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.site-nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-nav-links a {
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav-links a:hover,
+.site-nav-links a:focus-visible,
+.site-nav-links a.is-active {
+  border-bottom-color: var(--white);
+}
+
 .landing-page {
   position: relative;
   display: flex;
@@ -373,6 +410,7 @@ main:not(.landing-page) dd {
   font-weight: 700;
   text-decoration: none;
   background: transparent;
+  cursor: pointer;
 }
 
 .secondary-button:hover,
@@ -406,6 +444,11 @@ main:not(.landing-page) dd {
 }
 
 @media (max-width: 40rem) {
+  .site-navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .product-page {
     width: min(100% - 2rem, 40rem);
     padding-top: 2.5rem;

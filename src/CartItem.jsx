@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, updateQuantity } from "./CartSlice";
 
-function CartItem() {
+function CartItem({ onNavigate }) {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart?.items ?? state.items ?? []);
   const total = cartItems.reduce(
@@ -25,9 +25,9 @@ function CartItem() {
         <section className="empty-cart" aria-live="polite">
           <h2>Your cart is waiting for a little green.</h2>
           <p>Add a plant from our collection to get started.</p>
-          <a className="primary-button" href="#plants">
+          <button className="primary-button" onClick={() => onNavigate("plants")} type="button">
             Continue Shopping
-          </a>
+          </button>
         </section>
       ) : (
         <div className="cart-layout">
@@ -96,9 +96,9 @@ function CartItem() {
             <button className="primary-button" onClick={handleCheckout} type="button">
               Checkout
             </button>
-            <a className="secondary-button" href="#plants">
+            <button className="secondary-button" onClick={() => onNavigate("plants")} type="button">
               Continue Shopping
-            </a>
+            </button>
           </aside>
         </div>
       )}
