@@ -3,7 +3,8 @@ import React from "react";
 function AboutUs() {
   return (
     <main>
-      <h1>About Paradise Nursery</h1>
+      <div className="about-us-container">
+        <h1>About Paradise Nursery</h1>
 
       <p>
         Welcome to Paradise Nursery, your online destination for beautiful
@@ -50,11 +51,12 @@ function AboutUs() {
         <dd>hello@paradisenursery.com</dd>
       </dl>
 
-      <p>
-        Thank you for choosing Paradise Nursery. We hope to help you find
-        the perfect plants to bring a little more nature into your everyday
-        life.
-      </p>
+        <p>
+          Thank you for choosing Paradise Nursery. We hope to help you find
+          the perfect plants to bring a little more nature into your everyday
+          life.
+        </p>
+      </div>
     </main>
   );
 }
