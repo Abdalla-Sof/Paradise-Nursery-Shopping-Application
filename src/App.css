@@ -396,7 +396,8 @@ main:not(.landing-page) dd {
 }
 
 .cart-summary .primary-button,
-.cart-summary .secondary-button {
+.cart-summary .secondary-button,
+.checkout-button {
   width: 100%;
   text-align: center;
 }

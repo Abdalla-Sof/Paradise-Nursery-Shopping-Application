@@ -90,10 +90,14 @@ function CartItem({ onNavigate }) {
           <aside className="cart-summary" aria-label="Order summary">
             <h2>Order Summary</h2>
             <div className="summary-total">
-              <span>Total</span>
+              <span>Total Cart Amount:</span>
               <strong>${total.toFixed(2)}</strong>
             </div>
-            <button className="primary-button" onClick={handleCheckout} type="button">
+            <button
+              className="primary-button checkout-button"
+              onClick={handleCheckout}
+              type="button"
+            >
               Checkout
             </button>
             <button className="secondary-button" onClick={() => onNavigate("plants")} type="button">
