@@ -76,11 +76,11 @@ function CartItem() {
                 <div className="cart-item-total">
                   <strong>${(item.price * item.quantity).toFixed(2)}</strong>
                   <button
-                    className="remove-button"
+                    className="delete-button"
                     onClick={() => dispatch(removeItem(item.id))}
                     type="button"
                   >
-                    Remove
+                    Delete
                   </button>
                 </div>
               </article>
