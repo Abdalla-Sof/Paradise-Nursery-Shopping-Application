@@ -23,8 +23,17 @@ function Navbar({ currentPage, onNavigate }) {
             key={link.page}
             onClick={() => onNavigate(link.page)}
           >
-            {link.label}
-            {link.page === "cart" && ` (${cartQuantity})`}
+            {link.page === "cart" && (
+              <span className="cart-icon" aria-hidden="true">
+                🛒
+              </span>
+            )}
+            <span>{link.label}</span>
+            {link.page === "cart" && (
+              <span aria-label={`${cartQuantity} items in cart`}>
+                ({cartQuantity})
+              </span>
+            )}
           </a>
         ))}
       </div>

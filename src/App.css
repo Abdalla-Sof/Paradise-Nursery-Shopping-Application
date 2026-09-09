@@ -54,6 +54,10 @@ body {
   border-bottom-color: var(--white);
 }
 
+.cart-icon {
+  margin-right: 0.3rem;
+}
+
 .landing-page {
   position: relative;
   display: flex;
