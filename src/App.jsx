@@ -3,9 +3,13 @@ import "./App.css";
 import ProductList from "./ProductList";
 
 function App() {
-  const [showProducts, setShowProducts] = useState(false);
+  const [showProductList, setShowProductList] = useState(false);
 
-  if (showProducts) {
+  const handleGetStarted = () => {
+    setShowProductList(true);
+  };
+
+  if (showProductList) {
     return <ProductList />;
   }
 
@@ -19,7 +23,7 @@ function App() {
         </p>
         <button
           className="primary-button"
-          onClick={() => setShowProducts(true)}
+          onClick={handleGetStarted}
           type="button"
         >
           Get Started
