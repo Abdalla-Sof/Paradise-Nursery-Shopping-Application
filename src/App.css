@@ -1,0 +1,110 @@
+:root {
+  --forest-green: #173f35;
+  --leaf-green: #2f7355;
+  --mist: #f4f1e8;
+  --ink: #20302a;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: var(--mist);
+}
+
+.landing-page {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  isolation: isolate;
+  background-color: var(--forest-green);
+  background-image: url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2200&q=85");
+  background-position: center;
+  background-size: cover;
+}
+
+.landing-page::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: rgba(12, 39, 30, 0.62);
+  content: "";
+}
+
+.landing-content {
+  width: min(100%, 42rem);
+  padding: clamp(2rem, 6vw, 5rem);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  text-align: center;
+  background: rgba(23, 63, 53, 0.78);
+  box-shadow: 0 1.5rem 4rem rgba(10, 31, 23, 0.28);
+}
+
+.landing-content h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 0.98;
+}
+
+.landing-content p {
+  max-width: 34rem;
+  margin: 0 auto 2rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 0.85rem 1.4rem;
+  border: 0;
+  color: var(--forest-green);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--white);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible {
+  color: var(--white);
+  background: var(--leaf-green);
+}
+
+main:not(.landing-page) {
+  width: min(100% - 3rem, 52rem);
+  margin: 0 auto;
+  padding: 4rem 0;
+  line-height: 1.7;
+}
+
+main:not(.landing-page) h1,
+main:not(.landing-page) h2 {
+  color: var(--forest-green);
+}
+
+main:not(.landing-page) dt {
+  margin-top: 1rem;
+  color: var(--forest-green);
+  font-weight: 700;
+}
+
+main:not(.landing-page) dd {
+  margin-left: 0;
+}
+
+@media (max-width: 40rem) {
+  .landing-content {
+    padding: 2rem 1.25rem;
+  }
+}
